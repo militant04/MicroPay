@@ -15,7 +15,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {NgxQRCodeModule } from 'ngx-qrcode2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
-import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { AuthServiceProvider} from '../providers/auth-service/auth-service';
 
 @NgModule({
   declarations: [
