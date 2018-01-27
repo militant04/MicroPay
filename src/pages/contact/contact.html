@@ -8,10 +8,14 @@
 
 <ion-content>
   <ion-list>
-    <ion-list-header>Welcome to {{userDetails.name}}</ion-list-header>
+    <ion-list-header>Account : {{userDetails.name}}</ion-list-header>
     <ion-item>
       <ion-icon name="ionic" item-start></ion-icon>
       <button ion-button (click)="scanButton()">Scan Credit Card</button>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="ionic" item-start></ion-icon>
+      <button ion-button (click)="logout()">Logout</button>
     </ion-item>
     <ion-card >
       <ion-card-content>

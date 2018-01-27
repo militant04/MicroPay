@@ -3,6 +3,7 @@ import {  NavController} from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 // import { LoginPage } from '../login/login';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-login',
@@ -12,7 +13,18 @@ export class LoginPage {
   responseData : any;
   userData = {"username": "","password": ""};
 
-  constructor(public navCtrl: NavController, public authService:AuthServiceProvider ) {
+  constructor(public toastCtrl: ToastController,public navCtrl: NavController, public authService:AuthServiceProvider ) {
+  }
+
+
+  //Toast Button to indicate wrong login
+  showToastWithCloseButton() {
+    const toast = this.toastCtrl.create({
+      message: 'Your credentials are incorrect, Retry Login',
+      showCloseButton: true,
+      closeButtonText: 'Ok'
+    });
+    toast.present();
   }
 
   signup(){
@@ -24,10 +36,14 @@ export class LoginPage {
         localStorage.setItem('userData', JSON.stringify(this.responseData));
         this.navCtrl.push(TabsPage);
       }
-      else{ console.log("User already exists"); }
+      else{ console.log("User already exists");
+        this.showToastWithCloseButton();
+      }
     }, (err) => {
       // Error log
     });
+
+
 
   }
 

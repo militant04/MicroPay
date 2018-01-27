@@ -26,6 +26,15 @@ export class ContactPage {
 
 
   }
+  backToWelcome(){
+    this.navCtrl.push(LoginPage);
+  }
+
+  logout(){
+    localStorage.clear();
+    setTimeout(() => this.backToWelcome(), 1000);
+  }
+
 
 
 
