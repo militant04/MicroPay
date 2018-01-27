@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
       Contact
     </ion-title>
@@ -8,10 +8,15 @@
 
 <ion-content>
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
+    <ion-list-header>Welcome to {{userDetails.name}}</ion-list-header>
     <ion-item>
       <ion-icon name="ionic" item-start></ion-icon>
-       <a href="#"(click)="login()">bbvsbnsddn</a>
+      <button ion-button (click)="scanButton()">Scan Credit Card</button>
     </ion-item>
+    <ion-card >
+      <ion-card-content>
+        Result from Scan: {{ scannedCardNumber }}
+      </ion-card-content>
+    </ion-card>
   </ion-list>
 </ion-content>
