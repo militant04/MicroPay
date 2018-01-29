@@ -10,12 +10,12 @@
     <ion-title>Transactions</ion-title>
   </ion-navbar>
   <ion-toolbar color="primary" no-border-top>
-    <ion-segment  [(ngModel)]="pet">
-      <ion-segment-button value="kittens">
-        Kittens
+    <ion-segment class="swiper-slide"  [(ngModel)]="activity">
+      <ion-segment-button value="in">
+        Money In
       </ion-segment-button>
-      <ion-segment-button value="puppies">
-        Puppies
+      <ion-segment-button value="out">
+        Money Out
       </ion-segment-button>
     </ion-segment>
     </ion-toolbar>
@@ -27,25 +27,37 @@
 
 
 <ion-content padding>
-  <div [ngSwitch]="pet">
-    <ion-list *ngSwitchCase="'puppies'">
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="img/thumbnail-puppy-1.jpg">
-        </ion-thumbnail>
-        <h2>Ruby</h2>
-      </ion-item>
-      ...
+  <div [ngSwitch]="activity">
+    <ion-list *ngSwitchCase="'out'">
+      <ion-list>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="https://militant04.github.io/assets/images/IMG_20161205_143803.jpg">
+          </ion-avatar>
+          <h2>Cher</h2>
+          <p>Ugh. As if.</p>
+        </ion-item>
+      </ion-list>
+
     </ion-list>
 
-    <ion-list *ngSwitchCase="'kittens'">
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="img/thumbnail-kitten-1.jpg">
-        </ion-thumbnail>
-        <h2>Luna</h2>
-      </ion-item>
-      ...
+    <ion-list *ngSwitchCase="'in'">
+      <ion-list>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="https://militant04.github.io/assets/images/IMG_20161205_143803.jpg">
+          </ion-avatar>
+          <h2>Militant Saungweme</h2>
+          <p>Payment Sent</p>
+        </ion-item>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="https://pbs.twimg.com/profile_images/932020207362695168/2YKXvUVr_bigger.jpg">
+          </ion-avatar>
+          <h2>Militant Saungweme</h2>
+          <p>Payment Sent</p>
+        </ion-item>
+      </ion-list>
     </ion-list>
   </div>
 

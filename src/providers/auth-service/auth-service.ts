@@ -32,5 +32,21 @@ export class AuthServiceProvider {
     });
 
   }
+  makePayment(paymentPayload, type) {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+
+      this.http.post(apiUrl + type, JSON.stringify(paymentPayload), {headers: headers})
+        .subscribe(res => {
+          resolve(res.json());
+          console.log(res.json);
+        }, (err) => {
+          console.log(err);
+          reject(err);
+        });
+    });
+
+  }
+
 
 }
