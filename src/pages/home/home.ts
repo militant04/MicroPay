@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { ModalController } from 'ionic-angular';
 
 @Component({
  selector: 'page-home',
@@ -10,6 +11,7 @@ export class HomePage {
  qrData = null;
  createdCode = null;
  scannedCode = null;
+ merchantData = null;
 
  constructor(private barcodeScanner: BarcodeScanner) { }
 
@@ -17,9 +19,13 @@ export class HomePage {
    this.createdCode = this.qrData;
  }
 
+
  scanCode() {
    this.barcodeScanner.scan().then(barcodeData => {
-     this.scannedCode = barcodeData.text;
+     let jsondata = barcodeData.text;
+     this.scannedCode = jsondata;
+     this.merchantData = JSON.parse(jsondata);
+     document.getElementById('butt').style.display='none';
    }, (err) => {
        console.log('Error: ', err);
    });

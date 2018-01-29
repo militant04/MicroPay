@@ -4,51 +4,88 @@ import { TabsPage } from '../tabs/tabs';
 // import { LoginPage } from '../login/login';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { ToastController } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  responseData : any;
+
+  // userDetails : any;
+  responseData: any;
+  // userPostData = {"user_id":"","token":""};
+
   userData = {"username": "","password": ""};
 
-  constructor(public toastCtrl: ToastController,public navCtrl: NavController, public authService:AuthServiceProvider ) {
+
+  constructor(public loadingCtrl: LoadingController,public toastCtrl: ToastController,public navCtrl: NavController, public authService:AuthServiceProvider ) {
+
+    // const data = JSON.parse(localStorage.getItem('userData'));
+    // this.userDetails = data.userData;
+    // this.userPostData.user_id = this.userDetails.user_id;
+    // this.userPostData.token = this.userDetails.token;
+    // console.log(this.userDetails);
+
+    // if(this.userDetails.username !== null){
+    //     this.moveToTabs();
+    // }
+    // else {
+    //   console.log('d svdsdvs');
+    // }
+
+
+  }
+
+  moveToTabs(){
+    this.navCtrl.push(TabsPage);
+
+  }
+
+  //control loading on login
+  presentLoading() {
+    let loader = this.loadingCtrl.create({
+      content: "Loading your data, please wait...",
+      duration: 3000
+    });
+    loader.present();
   }
 
 
   //Toast Button to indicate wrong login
-  showToastWithCloseButton() {
-    const toast = this.toastCtrl.create({
-      message: 'Your credentials are incorrect, Retry Login',
-      showCloseButton: true,
-      closeButtonText: 'Ok'
+  showToast(position: string, message: string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 2000,
+      position: position
     });
-    toast.present();
-  }
 
+    toast.present(toast);
+  }
   signup(){
+    this.presentLoading();
     this.authService.postData(this.userData,'login').then((result) => {
       this.responseData = result;
       console.log(this.responseData);
       if(this.responseData.userData){
+
         console.log(this.responseData);
         localStorage.setItem('userData', JSON.stringify(this.responseData));
         this.navCtrl.push(TabsPage);
       }
       else{ console.log("User already exists");
-        this.showToastWithCloseButton();
+        this.showToast('bottom','Login Failed - Wrong Credentials');
       }
     }, (err) => {
-      // Error log
+         this.showToast('bottom', 'Login Failed - Network Error');
     });
 
 
 
   }
 
-  // login(){
-  //   //Login page link
-  //   this.navCtrl.push(LoginPage);
-  // }
+  login(){
+    //Login page link
+    this.navCtrl.push(TabsPage);
+  }
 }

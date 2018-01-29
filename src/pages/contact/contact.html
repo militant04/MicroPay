@@ -1,26 +1,55 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      Contact
+      Profile
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-list >
+    <ion-list-header>Account</ion-list-header>
+    <ion-item>
+      <ion-icon color="light" name="contact" item-start></ion-icon>
+           {{userDetails.name}}
+    </ion-item>
+  </ion-list>
   <ion-list>
-    <ion-list-header>Account : {{userDetails.name}}</ion-list-header>
     <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      <button ion-button (click)="scanButton()">Scan Credit Card</button>
+      <ion-icon color="light"  name="cloud" item-start></ion-icon>
+      {{userDetails.username}}
     </ion-item>
+  </ion-list>
+  <ion-list >
     <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      <button ion-button (click)="logout()">Logout</button>
+      <ion-icon color="light" name="mail" item-start></ion-icon>
+      {{userDetails.email}}
     </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-icon color="light" name="ionic" item-start></ion-icon>
+      <button color="secondary" ion-button (click)="scanButton()">Scan Credit Card</button>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+
+      <button color="secondary" ion-button (click)="logout()">Logout</button>
+    </ion-item>
+
+  </ion-list>
+
     <ion-card >
       <ion-card-content>
         Result from Scan: {{ scannedCardNumber }}
       </ion-card-content>
     </ion-card>
-  </ion-list>
 </ion-content>

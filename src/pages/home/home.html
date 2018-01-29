@@ -1,13 +1,18 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar no-border color="primary">
     <ion-title>MicroPay</ion-title>
+    <ion-buttons end>
+      <button (click)="scanCode()" ion-button icon-only color="royal">
+        <ion-icon  name="qr-scanner"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <ion-fab style="padding-left: 45%" middle>
-        
-        <button ion-fab (click)="scanCode()"><ion-icon name="qr-scanner"></ion-icon></button>
+<ion-content padding class="back">
+    <ion-fab id="butt" style="padding-left: 45%" middle>
+
+        <button id="butt" ion-fab large (click)="scanCode()"><ion-icon name="qr-scanner"></ion-icon></button>
       </ion-fab>
       <!-- Input for QR code -->
       <!-- <ion-item>
@@ -16,17 +21,28 @@
       </ion-item> -->
       <!-- <button ion-button full icon-left (click)="createCode()"><ion-icon name="barcode"></ion-icon>Create Code</button> -->
       <!-- <button ion-button full icon-left (click)="scanCode()" color="secondary"><ion-icon name="qr-scanner"></ion-icon>Scan Code</button> -->
- 
+
   <!-- <ion-card *ngIf="createdCode">
     <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
     <ion-card-content>
       <p>Value: {{ createdCode }}</p>
     </ion-card-content>
   </ion-card> -->
- 
+
   <ion-card *ngIf="scannedCode">
-    <ion-card-content>
-      Result from Scan: {{ scannedCode }}
+    <ion-card-content >
+       You are about to pay $ {{ merchantData.MerchantData.amount}} to <br>
+      {{ merchantData.MerchantData.merch_name}}
+
+
+      <ion-item>
+        <ion-input type="number" placeholder="ENTER PIN 0000"></ion-input>
+      </ion-item>
+    <ion-item>
+      <button  ion-button full>Pay</button>
+    </ion-item>
     </ion-card-content>
+
   </ion-card>
+
 </ion-content>

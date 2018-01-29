@@ -18,6 +18,7 @@ import { AuthServiceProvider} from '../providers/auth-service/auth-service';
 import {HttpClient, HttpHandler} from "@angular/common/http";
 import {WelcomePage} from "../pages/welcome/welcome";
 import {CardIO} from '@ionic-native/card-io';
+import {TransactionsPage} from "../pages/transactions/transactions"
 
 
 
@@ -29,7 +30,8 @@ import {CardIO} from '@ionic-native/card-io';
     HomePage,
     TabsPage,
     LoginPage,
-    WelcomePage
+    WelcomePage,
+    TransactionsPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,9 @@ import {CardIO} from '@ionic-native/card-io';
     HomePage,
     TabsPage,
     LoginPage,
+    TransactionsPage,
     WelcomePage
+
   ],
   providers: [
     StatusBar,

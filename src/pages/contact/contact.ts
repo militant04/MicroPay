@@ -32,7 +32,7 @@ export class ContactPage {
 
   logout(){
     localStorage.clear();
-    setTimeout(() => this.backToWelcome(), 1000);
+
   }
 
 
