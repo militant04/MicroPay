@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { ModalController } from 'ionic-angular';
 import {AuthServiceProvider} from "../../providers/auth-service/auth-service"
 import { AlertController } from 'ionic-angular';
 
@@ -15,7 +13,7 @@ export class HomePage {
  createdCode = null;
  scannedCode = null;
  merchantData = null;
- paymentData = {"clientID":"","amount":"92","merchantID":"wee"};
+ paymentData = {"clientID":"","amount":"2","merchantID":""};
  responseData: any;
  // paymentDetails: any;
   userDetails : any;
@@ -25,7 +23,7 @@ export class HomePage {
    const data = JSON.parse(localStorage.getItem('userData'));
    this.userDetails = data.userData;
       console.log(this.userDetails);
-      // console.log(this.userDetails);
+      // To do tommorow--Try saving the state of amount in localStorage
      this.paymentData.clientID = this.userDetails.user_id;
      // this.paymentData.amount = this.userDetails.amount;
      // this.paymentData.merchantID = this.userDetails.merch_name;
@@ -38,14 +36,19 @@ export class HomePage {
 
  scanCode() {
    this.barcodeScanner.scan().then(barcodeData => {
+
      let jsondata = barcodeData.text;
      this.scannedCode = jsondata;
      this.merchantData = JSON.parse(jsondata);
+     let merchData =JSON.parse(jsondata);
+     this.showAlert(merchData.MerchantData.amount);
+     this.paymentData.amount = merchData.MerchantData.amount;
      document.getElementById('butt').style.display='none';
    }, (err) => {
        console.log('Error: ', err);
    });
  }
+
  pay(){
     // this.presentLoading();
     this.authService.makePayment(this.paymentData,'pay').then((result) => {
@@ -54,7 +57,7 @@ export class HomePage {
       let responseType = this.responseData.ResponseData.confirmed;
       if(this.responseData.ResponseData){
          switch (responseType){
-           case 'true':
+           case 'True':
              // alert('payment has been processed');
              this.showAlert('payment has been processed');
              break;
@@ -62,7 +65,6 @@ export class HomePage {
              this.showAlert('You have insufficient credit to perform transaction');
              // alert('You have insufficient credit to perform transaction');
              break;
-
          }
 
         // console.log(this.responseData);
@@ -77,8 +79,6 @@ export class HomePage {
     }, (err) => {
       // this.showToast('bottom', 'Login Failed - Network Error');
     });
-
-
 
   }
   showAlert(message) {

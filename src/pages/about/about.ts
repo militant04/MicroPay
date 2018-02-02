@@ -7,8 +7,11 @@ import { StatusBar } from '@ionic-native/status-bar';
   templateUrl: 'about.html'
 })
 export class AboutPage {
+  userDetails : any;
 
   constructor(public navCtrl: NavController) {
+    const data = JSON.parse(localStorage.getItem('userData'));
+    this.userDetails = data.userData;
 
   }
 
