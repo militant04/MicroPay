@@ -19,6 +19,7 @@ import {HttpClient, HttpHandler} from "@angular/common/http";
 import {WelcomePage} from "../pages/welcome/welcome";
 import {CardIO} from '@ionic-native/card-io';
 import {TransactionsPage} from "../pages/transactions/transactions"
+import {SignupPage} from "../pages/signup/signup";
 
 
 
@@ -31,6 +32,7 @@ import {TransactionsPage} from "../pages/transactions/transactions"
     TabsPage,
     LoginPage,
     WelcomePage,
+    SignupPage,
     TransactionsPage
   ],
   imports: [
@@ -47,7 +49,7 @@ import {TransactionsPage} from "../pages/transactions/transactions"
     TabsPage,
     LoginPage,
     TransactionsPage,
-    WelcomePage
+    WelcomePage,SignupPage
 
   ],
   providers: [

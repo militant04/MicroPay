@@ -2,8 +2,8 @@ import {Http, Headers} from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
-let apiUrl = 'http://enter10ment.co.zw/api/';
-// let apiUrl = 'http://localhost:81/micropay/api/';
+// let apiUrl = 'http://enter10ment.co.zw/api/';
+let apiUrl = 'http://localhost:81/micropay/api/';
 
 /*
   Generated class for the AuthServiceProvider provider.
