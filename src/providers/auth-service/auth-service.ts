@@ -9,10 +9,11 @@ let apiUrl = 'http://localhost:81/micropay/api/';
   Generated class for the AuthServiceProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
+  and Angular DI
 */
 @Injectable()
 export class AuthServiceProvider {
+
 
   constructor(public http: Http) {
     console.log('Hello AuthServiceProvider Provider');
@@ -28,6 +29,7 @@ export class AuthServiceProvider {
         }, (err) => {
           console.log(err);
           reject(err);
+
         });
     });
 

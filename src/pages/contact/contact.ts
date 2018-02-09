@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import {LoginPage} from '../login/login';
 import { CardIO, CardIOOptions } from '@ionic-native/card-io';
 import { AuthServiceProvider} from "../../providers/auth-service/auth-service"
+import { PopoverController } from 'ionic-angular';
+import {AddCardPage} from "../../pages/add-card/add-card";
 
 
 @Component({
@@ -17,7 +19,7 @@ export class ContactPage {
 
   scannedCardNumber = null;
 
-  constructor(public navCtrl: NavController,private cardIO: CardIO, public authService:AuthServiceProvider) {
+  constructor(public popoverCtrl: PopoverController,public navCtrl: NavController,private cardIO: CardIO, public authService:AuthServiceProvider) {
     const data = JSON.parse(localStorage.getItem('userData'));
     this.userDetails = data.userData;
 
@@ -25,6 +27,11 @@ export class ContactPage {
     this.userPostData.token = this.userDetails.token;
 
 
+  }
+
+  presentPopover() {
+    let popover = this.popoverCtrl.create(AddCardPage);
+    popover.present();
   }
   backToWelcome(){
     this.navCtrl.push(LoginPage);
@@ -88,6 +95,12 @@ export class ContactPage {
         console.log(err);
       });
   }
+
+  // move to add card
+  moveToAddCard(){
+    this.navCtrl.push(AddCardPage);
+  }
+
 
 
 }

@@ -5,6 +5,7 @@ import { TabsPage } from '../tabs/tabs';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { ToastController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
+import { SignupPage} from "../signup/signup";
 
 @Component({
   selector: 'page-login',
@@ -37,10 +38,7 @@ export class LoginPage {
 
   }
 
-  moveToTabs(){
-    this.navCtrl.push(TabsPage);
 
-  }
 
   //control loading on login
   presentLoading() {
@@ -86,6 +84,6 @@ export class LoginPage {
 
   login(){
     //Login page link
-    this.navCtrl.push(TabsPage);
+    this.navCtrl.push(SignupPage);
   }
 }

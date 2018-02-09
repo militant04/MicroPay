@@ -14,9 +14,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'transactions.html',
 })
 export class TransactionsPage {
-
+  activity = 'in';
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+    this.activity='in';
   }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TransactionsPage');

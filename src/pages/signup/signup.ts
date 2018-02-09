@@ -65,8 +65,8 @@ export class SignupPage {
   //control loading on login
   presentLoading() {
     let loader = this.loadingCtrl.create({
-      content: "Loading your data, please wait...",
-      duration: 3000
+      content: "Registering Client..please wait",
+      duration: 5000
     });
     loader.present();
   }

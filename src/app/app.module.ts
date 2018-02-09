@@ -20,6 +20,7 @@ import {WelcomePage} from "../pages/welcome/welcome";
 import {CardIO} from '@ionic-native/card-io';
 import {TransactionsPage} from "../pages/transactions/transactions"
 import {SignupPage} from "../pages/signup/signup";
+import {AddCardPage} from "../pages/add-card/add-card";
 
 
 
@@ -33,7 +34,7 @@ import {SignupPage} from "../pages/signup/signup";
     LoginPage,
     WelcomePage,
     SignupPage,
-    TransactionsPage
+    TransactionsPage,AddCardPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +50,7 @@ import {SignupPage} from "../pages/signup/signup";
     TabsPage,
     LoginPage,
     TransactionsPage,
-    WelcomePage,SignupPage
+    WelcomePage,SignupPage,AddCardPage
 
   ],
   providers: [

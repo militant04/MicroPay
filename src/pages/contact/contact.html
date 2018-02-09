@@ -4,7 +4,7 @@
       Profile
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only color="royal">
+      <button (click)="presentPopover()" ion-button icon-only color="royal">
         <ion-icon name="contact"></ion-icon>
       </button>
     </ion-buttons>
@@ -12,7 +12,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
 
   <ion-list >
     <ion-list-header>Account</ion-list-header>
@@ -33,12 +33,23 @@
       {{userDetails.email}}
     </ion-item>
   </ion-list>
-  <ion-list>
+  <ion-list >
     <ion-item>
-      <ion-icon color="light" name="ionic" item-start></ion-icon>
-      <button color="secondary" ion-button (click)="scanButton()">Scan Credit Card</button>
+      <ion-icon color="icons" name="mail" item-start></ion-icon>
+      XXX XXXX XXXX XXX
     </ion-item>
   </ion-list>
+  <ion-list >
+
+      <button padding round color="secondary" margin-bottom="70px" ion-button full (click)="moveToAddCard()">Add Card</button>
+
+  </ion-list>
+  <!--<ion-list>-->
+    <!--<ion-item>-->
+      <!--<ion-icon color="light" name="ionic" item-start></ion-icon>-->
+      <!--<button color="secondary" ion-button (click)="scanButton()">Scan Credit Card</button>-->
+    <!--</ion-item>-->
+  <!--</ion-list>-->
   <!--<ion-list>-->
     <!--<ion-item>-->
 
@@ -47,9 +58,9 @@
 
   <!--</ion-list>-->
 
-    <ion-card >
-      <ion-card-content>
-        Result from Scan: {{ scannedCardNumber }}
-      </ion-card-content>
-    </ion-card>
+    <!--<ion-card >-->
+      <!--<ion-card-content>-->
+        <!--Result from Scan: {{ scannedCardNumber }}-->
+      <!--</ion-card-content>-->
+    <!--</ion-card>-->
 </ion-content>
