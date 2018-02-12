@@ -12,39 +12,53 @@
     </ion-title>
     <ion-buttons end>
       <button  ion-button icon-only color="royal">
-        <ion-icon name="contact"></ion-icon>
+        <ion-icon name="card"></ion-icon>
       </button>
     </ion-buttons>
 
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-card>
+
+
     <ion-card-header>
       <button round  margin-bottom="70px"  color="secondary" ion-button (click)="scanButton()" full>Scan Your Bank Card</button>
     </ion-card-header>
-  <ion-list middle padding-top="100px">
+    <ion-list  inset middle padding-top="100px">
 
-    <ion-item>
-      <ion-label floating>Card Number</ion-label>
-      <ion-input type="text"  >{{scannedCardNumber}}</ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>CVV</ion-label>
-      <ion-input type="text" ></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input type="password" ></ion-input>
-    </ion-item>
-    <div padding>
-      <button round  margin-bottom="70px"  ion-button full (click)="scanButton()">Add Card</button>
-    </div>
+      <ion-item>
+        <ion-label>Card Number</ion-label>
+        <ion-input type="text" [(ngModel)]="accNumber" value="{{model.cardNumber}}" >{{model.cardNumber}}</ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="hidden" value="{{userDetails.user_id}}" [(ngModel)]="userData.user_id"></ion-input>
+      </ion-item>
 
-  </ion-list>
-  </ion-card>
+      <ion-item>
+        <ion-label >CVV</ion-label>
+        <ion-input type="text"  ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label >Expiry</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label >Issuing Bank</ion-label>
+        <ion-select [(ngModel)]="bank" >
+          <ion-option value="Stanbic Bank">Stanbic</ion-option>
+          <ion-option value="CBZ">CBZ</ion-option>
+          <ion-option value="Barclays">Barclays</ion-option>
+          <ion-option value="Steward Bank">Steward Bank</ion-option>
+          <ion-option value="FBC">FBC</ion-option>
+          <ion-option value="Militant Holdings">Militant Bank</ion-option>
+        </ion-select>
+      </ion-item>
 
+      <div padding>
+        <button round  margin-bottom="70px"  ion-button full (click)="saveCardDetails()">Add Card</button>
+      </div>
 
+    </ion-list>
 
 </ion-content>
 

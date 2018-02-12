@@ -13,30 +13,31 @@
 </ion-header>
 
 <ion-content padding>
-
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
   <ion-list >
-    <ion-list-header>Account</ion-list-header>
+
     <ion-item>
       <ion-icon color="icons" name="contact" item-start></ion-icon>
            {{userDetails.name}}
     </ion-item>
-  </ion-list>
-  <ion-list>
     <ion-item>
       <ion-icon color="icons"  name="cloud" item-start></ion-icon>
       {{userDetails.username}}
     </ion-item>
-  </ion-list>
-  <ion-list >
     <ion-item>
       <ion-icon color="icons" name="mail" item-start></ion-icon>
       {{userDetails.email}}
     </ion-item>
-  </ion-list>
-  <ion-list >
     <ion-item>
-      <ion-icon color="icons" name="mail" item-start></ion-icon>
-      XXX XXXX XXXX XXX
+      <ion-icon color="icons" name="card" item-start></ion-icon>
+      {{myAcc}}
+    </ion-item>
+    <ion-item>
+      <ion-icon color="icons" name="briefcase" item-start></ion-icon>
+      {{bank}}
     </ion-item>
   </ion-list>
   <ion-list >

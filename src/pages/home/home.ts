@@ -13,7 +13,7 @@ export class HomePage {
  createdCode = null;
  scannedCode = null;
  merchantData = null;
- paymentData = {"clientID":"","amount":"2","merchantID":""};
+ paymentData = {"clientID":"","amount":"","merchantID":""};
  responseData: any;
  // paymentDetails: any;
   userDetails : any;
@@ -41,7 +41,7 @@ export class HomePage {
      this.scannedCode = jsondata;
      this.merchantData = JSON.parse(jsondata);
      let merchData =JSON.parse(jsondata);
-     this.showAlert(merchData.MerchantData.amount);
+     // this.showAlert(merchData.MerchantData.amount);
      this.paymentData.amount = merchData.MerchantData.amount;
      document.getElementById('butt').style.display='none';
    }, (err) => {

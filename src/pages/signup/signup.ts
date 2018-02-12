@@ -5,11 +5,12 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { ToastController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import {LoginPage} from "../login/login";
+import {AddCardPage} from "../add-card/add-card";
 
 /**
  * Generated class for the SignupPage page.
  *
- * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Page handles all signup activities
  * Ionic pages and navigation.
  */
 
@@ -50,7 +51,7 @@ export class SignupPage {
 
         console.log(this.responseData);
         localStorage.setItem('userData', JSON.stringify(this.responseData));
-        this.navCtrl.push(TabsPage);
+        this.navCtrl.push(AddCardPage);
       }
       else{ console.log("User already exists");
         this.showToast('bottom','Login Failed - Wrong Credentials');

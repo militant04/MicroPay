@@ -21,6 +21,8 @@ import {CardIO} from '@ionic-native/card-io';
 import {TransactionsPage} from "../pages/transactions/transactions"
 import {SignupPage} from "../pages/signup/signup";
 import {AddCardPage} from "../pages/add-card/add-card";
+import { SecureStorage, SecureStorageObject } from '@ionic-native/secure-storage';
+import {ModalPage} from "../pages/modal/modal";
 
 
 
@@ -33,7 +35,7 @@ import {AddCardPage} from "../pages/add-card/add-card";
     TabsPage,
     LoginPage,
     WelcomePage,
-    SignupPage,
+    SignupPage,ModalPage,
     TransactionsPage,AddCardPage
   ],
   imports: [
@@ -50,7 +52,7 @@ import {AddCardPage} from "../pages/add-card/add-card";
     TabsPage,
     LoginPage,
     TransactionsPage,
-    WelcomePage,SignupPage,AddCardPage
+    WelcomePage,SignupPage,AddCardPage,ModalPage
 
   ],
   providers: [
@@ -58,7 +60,7 @@ import {AddCardPage} from "../pages/add-card/add-card";
     QRScanner,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},AuthServiceProvider,
-    BarcodeScanner, CardIO, HttpClient,
+    BarcodeScanner, CardIO, HttpClient
 
   ]
 })

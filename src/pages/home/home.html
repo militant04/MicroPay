@@ -12,7 +12,7 @@
 <ion-content padding class="back">
     <ion-fab id="butt" style="padding-left: 45%" middle>
 
-        <button id="butt" ion-fab large (click)="scanCode()"><ion-icon name="qr-scanner"></ion-icon></button>
+        <button color="secondary"  id="butt" ion-fab large (click)="scanCode()"><ion-icon name="qr-scanner"></ion-icon></button>
       </ion-fab>
       <!-- Input for QR code -->
       <!-- <ion-item>
@@ -29,21 +29,32 @@
     </ion-card-content>
   </ion-card> -->
 
+
+  <!--<button  ion-button full (click)="pay()">Pay</button>-->
   <ion-card *ngIf="scannedCode">
     <ion-card-content >
-       You are about to pay $ {{ merchantData.MerchantData.amount}} to <br>
-      {{ merchantData.MerchantData.merch_name}}
+      <ion-label>You are about to pay</ion-label>
+      <h1>$ {{ merchantData.MerchantData.amount}}</h1><br>
+      <h6 middle align-items-center>To  {{ merchantData.MerchantData.merch_name}}</h6><br>
 
-      <ion-item>
+
+
         <ion-input type="number" placeholder="ENTER PIN 0000"></ion-input>
-      </ion-item>
-      <ion-item>
-      <button  ion-button full (click)="pay()">Pay</button>
-      </ion-item>
+
+
+
+
     </ion-card-content>
 
+
   </ion-card>
-  <!--<button  ion-button full (click)="pay()">Pay</button>-->
+  <div padding>
+  <button *ngIf="scannedCode" padding color="secondary" ion-button full (click)="pay()">Pay</button>
+  </div>
+
+  <div padding>
+  <img *ngIf="scannedCode" padding-left="30%" src="assets/imgs/verified.png" width="40%">
+  </div>
 
 
 
