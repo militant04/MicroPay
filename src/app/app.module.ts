@@ -23,6 +23,9 @@ import {SignupPage} from "../pages/signup/signup";
 import {AddCardPage} from "../pages/add-card/add-card";
 import { SecureStorage, SecureStorageObject } from '@ionic-native/secure-storage';
 import {ModalPage} from "../pages/modal/modal";
+import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
+
+
 
 
 
@@ -60,7 +63,7 @@ import {ModalPage} from "../pages/modal/modal";
     QRScanner,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},AuthServiceProvider,
-    BarcodeScanner, CardIO, HttpClient
+    BarcodeScanner, CardIO, HttpClient,NativePageTransitions
 
   ]
 })

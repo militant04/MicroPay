@@ -51,9 +51,9 @@ export class ContactPage {
 
   }
 
-  presentPopover() {
+  presentPopover(myEvent) {
     let popover = this.popoverCtrl.create(ModalPage);
-    popover.present();
+    popover.present({ ev: myEvent });
   }
   backToWelcome(){
     this.navCtrl.push(LoginPage);

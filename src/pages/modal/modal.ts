@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {LoginPage} from "../login/login";
 
 /**
  * Generated class for the ModalPage page.
@@ -10,8 +11,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-modal',
-  templateUrl: 'modal.html',
+  // selector: 'page-modal',
+  template: '<ion-content><ion-item onclick="this.logout()">Logout</ion-item></ion-content>',
 })
 export class ModalPage {
 
@@ -21,5 +22,15 @@ export class ModalPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModalPage');
   }
+  backToWelcome(){
+    this.navCtrl.push(LoginPage);
+  }
+
+  logout(){
+    localStorage.clear();
+    setTimeout(() => this.backToWelcome(), 1000);
+  }
+
+
 
 }

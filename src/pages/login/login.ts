@@ -6,6 +6,9 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { ToastController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import { SignupPage} from "../signup/signup";
+import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
+
+
 
 @Component({
   selector: 'page-login',
@@ -20,7 +23,7 @@ export class LoginPage {
   userData = {"username": "","password": ""};
 
 
-  constructor(public loadingCtrl: LoadingController,public toastCtrl: ToastController,public navCtrl: NavController, public authService:AuthServiceProvider ) {
+  constructor(private nativePageTransitions: NativePageTransitions,public loadingCtrl: LoadingController,public toastCtrl: ToastController,public navCtrl: NavController, public authService:AuthServiceProvider ) {
 
     // const data = JSON.parse(localStorage.getItem('userData'));
     // this.userDetails = data.userData;
@@ -37,7 +40,12 @@ export class LoginPage {
 
 
   }
+  // example of adding a transition when a page/modal closes
+  ionViewWillLeave
 
+
+
+// example of adding a transition when pushing a new page
 
 
   //control loading on login
@@ -69,6 +77,17 @@ export class LoginPage {
 
         console.log(this.responseData);
         localStorage.setItem('userData', JSON.stringify(this.responseData));
+        let options = {
+          direction: 'up',
+          duration: 500,
+          slowdownfactor: 3,
+          slidePixels: 20,
+          iosdelay: 100,
+          androiddelay: 150,
+          fixedPixelsTop: 0,
+          fixedPixelsBottom: 60
+        };
+        this.nativePageTransitions.fade(options);
         this.navCtrl.push(TabsPage);
       }
       else{ console.log("User already exists");
@@ -84,6 +103,17 @@ export class LoginPage {
 
   login(){
     //Login page link
+    let options = {
+      direction: 'right',
+      duration: 500,
+      slowdownfactor: 3,
+      slidePixels: 20,
+      iosdelay: 100,
+      androiddelay: 150,
+      fixedPixelsTop: 0,
+      fixedPixelsBottom: 60
+    };
+    this.nativePageTransitions.slide(options);
     this.navCtrl.push(SignupPage);
   }
 }
