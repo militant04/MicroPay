@@ -24,7 +24,9 @@ import {AddCardPage} from "../pages/add-card/add-card";
 import { SecureStorage, SecureStorageObject } from '@ionic-native/secure-storage';
 import {ModalPage} from "../pages/modal/modal";
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
-
+import { CallNumber } from '@ionic-native/call-number';
+import { ExtrasPage} from "../pages/extras/extras";
+import {EssentialsPage} from "../pages/essentials/essentials"
 
 
 
@@ -37,9 +39,9 @@ import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/na
     HomePage,
     TabsPage,
     LoginPage,
-    WelcomePage,
+    WelcomePage,EssentialsPage,
     SignupPage,ModalPage,
-    TransactionsPage,AddCardPage
+    TransactionsPage,AddCardPage,ExtrasPage
   ],
   imports: [
     BrowserModule,
@@ -53,8 +55,8 @@ import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/na
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage,
-    TransactionsPage,
+    LoginPage,ExtrasPage,
+    TransactionsPage,EssentialsPage,
     WelcomePage,SignupPage,AddCardPage,ModalPage
 
   ],
@@ -63,7 +65,7 @@ import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/na
     QRScanner,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},AuthServiceProvider,
-    BarcodeScanner, CardIO, HttpClient,NativePageTransitions
+    BarcodeScanner, CardIO, HttpClient,NativePageTransitions,CallNumber
 
   ]
 })

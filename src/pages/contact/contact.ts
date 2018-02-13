@@ -6,6 +6,7 @@ import { AuthServiceProvider} from "../../providers/auth-service/auth-service"
 import { PopoverController } from 'ionic-angular';
 import {AddCardPage} from "../../pages/add-card/add-card";
 import {ModalPage} from "../modal/modal";
+import { CallNumber } from '@ionic-native/call-number';
 
 
 @Component({
@@ -32,7 +33,7 @@ export class ContactPage {
   }
 
 
-  constructor(public popoverCtrl: PopoverController,public navCtrl: NavController,private cardIO: CardIO, public authService:AuthServiceProvider) {
+  constructor(private callNumber: CallNumber,public popoverCtrl: PopoverController,public navCtrl: NavController,private cardIO: CardIO, public authService:AuthServiceProvider) {
     const data = JSON.parse(localStorage.getItem('userData'));
     this.userDetails = data.userData;
 
@@ -121,6 +122,11 @@ export class ContactPage {
   // move to add card
   moveToAddCard(){
     this.navCtrl.push(AddCardPage);
+  }
+
+  callNum(){
+    this.callNumber.callNumber("*151*1*1#", true)
+
   }
 
 

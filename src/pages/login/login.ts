@@ -105,7 +105,7 @@ export class LoginPage {
     //Login page link
     let options = {
       direction: 'right',
-      duration: 500,
+      duration: 600,
       slowdownfactor: 3,
       slidePixels: 20,
       iosdelay: 100,
@@ -113,7 +113,7 @@ export class LoginPage {
       fixedPixelsTop: 0,
       fixedPixelsBottom: 60
     };
-    this.nativePageTransitions.slide(options);
+    this.nativePageTransitions.fade(options);
     this.navCtrl.push(SignupPage);
   }
 }
