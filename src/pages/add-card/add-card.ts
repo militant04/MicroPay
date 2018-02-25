@@ -23,10 +23,12 @@ export class AddCardPage {
   accNumber = null;
   bank= null;
   userID =null;
+  redactedCardNo = null;
 
   //create acc
   userDetails : any;
   responseData: any;
+
   // userPostData = {"user_id":"","token":""};
   userData = {"user_id": "","account": ""};
 
@@ -39,30 +41,31 @@ export class AddCardPage {
 
   saveCardDetails() {
 
-    localStorage.setItem('accountNumber', this.accNumber);
-    localStorage.setItem('bankName', this.bank);
-    this.authService.postData(this.userData,'account').then((result) => {
-      this.responseData = result;
-      console.log(this.responseData);
-      if(this.responseData.responseData){
-        console.log(this.responseData);
-        // localStorage.setItem('userData', JSON.stringify(this.responseData));
-        this.navCtrl.push(TabsPage);
-      }
-      else{
-
-        alert("User already exists");
-
-      }
-    }, (err) => {
-
-    });
-
     // localStorage.setItem('accountNumber', this.accNumber);
     // localStorage.setItem('bankName', this.bank);
-    // console.log(this.accNumber);
-    // console.log(this.bank);
-    // this.navCtrl.push(TabsPage);
+    // this.authService.postData(this.userData,'account').then((result) => {
+    //   this.responseData = result;
+    //   console.log(this.responseData);
+    //   if(this.responseData.responseData){
+    //     console.log(this.responseData);
+    //     // localStorage.setItem('userData', JSON.stringify(this.responseData));
+    //     this.navCtrl.push(TabsPage);
+    //   }
+    //   else{
+    //
+    //     alert("User already exists");
+    //
+    //   }
+    // }, (err) => {
+    //
+    // });
+
+    localStorage.setItem('accountNumber', this.accNumber);
+    localStorage.setItem('bankName', this.bank);
+    localStorage.setItem('redCardNum', this.redactedCardNo);
+    console.log(this.accNumber);
+    console.log(this.bank);
+    this.navCtrl.push(ContactPage);
 
 
 
@@ -73,7 +76,8 @@ export class AddCardPage {
     cardholderName: '',
     expiryMonth: '',
     expiryYear: '',
-    expireDate: ''
+    expireDate: '',
+    redactedCardNumber: ''
   };
 
   carNumber: string = '';
@@ -85,6 +89,7 @@ export class AddCardPage {
     this.model.cardholderName = data.cardholderName;
     this.model.cardNumber = data.cardNumber;
     this.model.expiryMonth = data.expiryMonth;
+    this.model.redactedCardNumber = data.redactedCardNumber;
     this.model.expiryYear = data.expiryYear;
     this.model.expireDate = data.expiryMonth +"/"+ data.expiryYear;
     //save to local-storage
@@ -111,6 +116,8 @@ export class AddCardPage {
       .then(res => {
         console.log(res);
         this.scannedCardNumber = res.cardNumber;
+        this.redactedCardNo = res.redactedCardNumber;
+        alert(this.redactedCardNo);
         this.setCardData(res);
       }, err => {
         // alert(err);

@@ -26,7 +26,13 @@ export class ExtrasPage {
     popover.present({ ev: myEvent });
   }
   sendMoney(){
-    this.callNumber.callNumber("*151*1*1#", true)
+    this.callNumber.callNumber("*151*1*1#", true);
+  }
+  payMerchant(){
+    this.callNumber.callNumber("*151*2*2#", true);
+  }
+  buyData(){
+    this.callNumber.callNumber("*143#", true);
   }
 
 }

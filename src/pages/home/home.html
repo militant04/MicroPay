@@ -10,7 +10,9 @@
 </ion-header>
 
 <ion-content padding class="back">
-    <ion-fab id="butt" style="padding-left: 45%" middle>
+  <button padding color="secondary" ion-button full (click)="pay()">Pay</button>
+
+  <ion-fab id="butt" style="padding-left: 45%" middle>
 
         <button color="secondary"  id="butt" ion-fab large (click)="scanCode()"><ion-icon name="qr-scanner"></ion-icon></button>
       </ion-fab>

@@ -12,44 +12,65 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="back">
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content>
     </ion-refresher-content>
   </ion-refresher>
-  <ion-list >
+  <div class="cardd" style="width: 100%;height: 230px; color: white"  padding-right>
+    <div class="a" style="float: left; display: block; width: 50%; height: 50%;"></div>
+    <div class="a" style="float: left; display: block; width: 50%; height: 50%;">
+      <div padding>{{bank}}</div>
+    </div>
+    <div class="a" style="float: left; display: block; width: 70%; height: 50%;">
+      <div padding>{{myAcc}}</div>
+    </div>
+    <div class="a" style="float: left; display: block; width: 30%; height: 50%;"></div>
+    <!--<ion-grid style="height: 100%; width: 100%">-->
+      <!--<ion-row>-->
+        <!--<ion-col col-12>This column will take 12 columns</ion-col>-->
+      <!--</ion-row>-->
+      <!--<ion-row>-->
+        <!--<ion-col col-6>This column will take 6 columns</ion-col>-->
+      <!--</ion-row>-->
+    <!--</ion-grid>-->
+    <!--<div padding style="font-size: 24px; padding-top: 40%; color: white">-->
+      <!--{{myAcc}}-->
+    <!--</div>-->
 
-    <ion-item>
-      <ion-icon color="icons" name="contact" item-start></ion-icon>
-           {{userDetails.name}}
-    </ion-item>
-    <ion-item>
-      <ion-icon color="icons"  name="cloud" item-start></ion-icon>
-      {{userDetails.username}}
-    </ion-item>
-    <ion-item>
-      <ion-icon color="icons" name="mail" item-start></ion-icon>
-      {{userDetails.email}}
-    </ion-item>
-    <ion-item>
-      <ion-icon color="icons" name="card" item-start></ion-icon>
-      {{myAcc}}
-    </ion-item>
-    <ion-item>
-      <ion-icon color="icons" name="briefcase" item-start></ion-icon>
-      {{bank}}
-    </ion-item>
-  </ion-list>
+  </div>
+  <!--<ion-list >-->
+    <!--<ion-item>-->
+      <!--<ion-icon color="icons" name="contact" item-start></ion-icon>-->
+           <!--{{userDetails.name}}-->
+    <!--</ion-item>-->
+    <!--<ion-item>-->
+      <!--<ion-icon color="icons"  name="cloud" item-start></ion-icon>-->
+      <!--{{userDetails.username}}-->
+    <!--</ion-item>-->
+    <!--<ion-item>-->
+      <!--<ion-icon color="icons" name="mail" item-start></ion-icon>-->
+      <!--{{userDetails.email}}-->
+    <!--</ion-item>-->
+    <!--<ion-item>-->
+      <!--<ion-icon color="icons" name="card" item-start></ion-icon>-->
+      <!--{{myAcc}}-->
+    <!--</ion-item>-->
+    <!--<ion-item>-->
+      <!--<ion-icon color="icons" name="briefcase" item-start></ion-icon>-->
+      <!--{{bank}}-->
+    <!--</ion-item>-->
+  <!--</ion-list>-->
   <ion-list >
 
       <button padding round color="secondary" margin-bottom="70px" ion-button full (click)="moveToAddCard()">Add Card</button>
 
   </ion-list>
-  <ion-list >
+  <!--<ion-list >-->
 
-    <button padding round color="secondary" margin-bottom="70px" ion-button full (click)="callNum()">Call Number</button>
+    <!--<button padding round color="secondary" margin-bottom="70px" ion-button full (click)="callNum()">Call Number</button>-->
 
-  </ion-list>
+  <!--</ion-list>-->
   <!--<ion-list>-->
     <!--<ion-item>-->
       <!--<ion-icon color="light" name="ionic" item-start></ion-icon>-->

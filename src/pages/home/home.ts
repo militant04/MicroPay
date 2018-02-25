@@ -4,6 +4,7 @@ import {AuthServiceProvider} from "../../providers/auth-service/auth-service"
 import { AlertController } from 'ionic-angular';
 
 
+
 @Component({
  selector: 'page-home',
  templateUrl: 'home.html'
@@ -13,7 +14,7 @@ export class HomePage {
  createdCode = null;
  scannedCode = null;
  merchantData = null;
- paymentData = {"clientID":"","amount":"","merchantID":""};
+ paymentData = {"clientID":"12", "amount":"1.23","merchantID":"3"};
  responseData: any;
  // paymentDetails: any;
   userDetails : any;

@@ -88,7 +88,8 @@ export class LoginPage {
           fixedPixelsBottom: 60
         };
         this.nativePageTransitions.fade(options);
-        this.navCtrl.push(TabsPage);
+        this.navCtrl.setRoot(TabsPage);
+        this.navCtrl.popToRoot();
       }
       else{ console.log("User already exists");
         this.showToast('bottom','Login Failed - Wrong Credentials');
