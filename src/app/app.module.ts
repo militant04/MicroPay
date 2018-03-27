@@ -26,7 +26,10 @@ import {ModalPage} from "../pages/modal/modal";
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 import { CallNumber } from '@ionic-native/call-number';
 import { ExtrasPage} from "../pages/extras/extras";
-import {EssentialsPage} from "../pages/essentials/essentials"
+import {EssentialsPage} from "../pages/essentials/essentials";
+import { ChartsModule } from 'ng2-charts';
+import {CryptoJS} from 'crypto-js';
+
 
 
 
@@ -46,7 +49,8 @@ import {EssentialsPage} from "../pages/essentials/essentials"
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    NgxQRCodeModule,HttpModule
+    NgxQRCodeModule,HttpModule,
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

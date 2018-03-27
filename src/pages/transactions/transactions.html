@@ -29,15 +29,14 @@
 <ion-content padding>
   <div [ngSwitch]="activity">
     <ion-list *ngSwitchCase="'out'">
-      <ion-list>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="https://militant04.github.io/assets/images/IMG_20161205_143803.jpg">
-          </ion-avatar>
-          <h2>Cher</h2>
-          <p>Ugh. As if.</p>
-        </ion-item>
-      </ion-list>
+      <div style="display: block">
+        <canvas baseChart
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
 
     </ion-list>
 

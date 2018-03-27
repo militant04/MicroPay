@@ -3,177 +3,179 @@
     <ion-title>
       Micropay
     </ion-title>
-  </ion-navbar>
-</ion-header>
-
-
-<ion-content>
-
     <div color="secondary" style="height:150px; background-color:#296d96; width:100%;">
-       <div style="height: 50px; width:100%;"></div>
-      <span padding-left padding-top style="color:rgb(248, 249, 250); font-size:36px;">${{userDetails.Balance}}</span><br>
+      <div style="height: 50px; width:100%;"></div>
+      <span *ngIf="userDetails" padding-left padding-top style="color:rgb(248, 249, 250); font-size:36px;">${{userDetails.Balance}}</span><br>
       <span padding-left style="color:rgb(248, 249, 250); font-size:14px;">Available</span>
 
 
 
     </div>
 
-    <ion-list padding>
-        <ion-item-sliding>
-          <ion-item>
-            <ion-avatar item-start>
-              <img src="../../assets/imgs/receipt.png">
-            </ion-avatar>
-            <h2>Militant Saungweme</h2>
-            <p>Payment made</p>
-          </ion-item>
-          <ion-item-options side="right">
-            <button ion-button color="primary">
-              <ion-icon name="trash"></ion-icon>
+  </ion-navbar>
+</ion-header>
 
+
+<ion-content>
+
+
+  <div  class="row">
+    <div class="col-md-6">
+      <div style="display: block;">
+        <canvas baseChart width="340" height="200"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+  </div>
+
+    <ion-list   padding>
+        <ion-item-sliding *ngFor="let item of list">
+          <ion-item >
+
+            <ion-icon  item-start  name="swap" color="primary"></ion-icon>
+
+            <h2>{{item.merch_name}}</h2>
+            <p>Payment made today</p>
+            <h2 item-end><strong>$ {{item.amount}}</strong></h2>
+          </ion-item>
+          <ion-item-options  side="right">
+            <button ion-button color="primary">
+              Clear
             </button>
           </ion-item-options>
         </ion-item-sliding>
 
-          <ion-item-sliding>
-            <ion-item>
-              <ion-avatar item-start>
-                <img src="https://pbs.twimg.com/profile_images/932020207362695168/2YKXvUVr_bigger.jpg">
-              </ion-avatar>
-              <h2>Elon Musk</h2>
-              <p>Payment made</p>
-            </ion-item>
-            <ion-item-options side="right">
-              <button ion-button color="primary">
-                <ion-icon name="trash"></ion-icon>
 
-              </button>
-            </ion-item-options>
-          </ion-item-sliding>
-      <ion-item-sliding>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="https://militant04.github.io/assets/images/IMG_20161205_143803.jpg">
-          </ion-avatar>
-          <h2>Militant Saungweme</h2>
-          <p>Payment made</p>
-        </ion-item>
-        <ion-item-options side="right">
-          <button ion-button color="primary">
-            <ion-icon name="trash"></ion-icon>
+      <!--<ion-item-sliding>-->
+        <!--<ion-item>-->
+          <!--<ion-avatar item-start>-->
+            <!--<img src="https://militant04.github.io/assets/images/IMG_20161205_143803.jpg">-->
+          <!--</ion-avatar>-->
+          <!--<h2>Militant Saungweme</h2>-->
+          <!--<p>Payment made</p>-->
+        <!--</ion-item>-->
+        <!--<ion-item-options side="right">-->
+          <!--<button ion-button color="primary">-->
+            <!--<ion-icon name="trash"></ion-icon>-->
 
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
+          <!--</button>-->
+        <!--</ion-item-options>-->
+      <!--</ion-item-sliding>-->
 
-      <ion-item-sliding>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="https://pbs.twimg.com/profile_images/932020207362695168/2YKXvUVr_bigger.jpg">
-          </ion-avatar>
-          <h2>Elon Musk</h2>
-          <p>Payment made</p>
-        </ion-item>
-        <ion-item-options side="right">
-          <button ion-button color="primary">
-            <ion-icon name="trash"></ion-icon>
+      <!--<ion-item-sliding>-->
+        <!--<ion-item>-->
+          <!--<ion-avatar item-start>-->
+            <!--<img src="https://pbs.twimg.com/profile_images/932020207362695168/2YKXvUVr_bigger.jpg">-->
+          <!--</ion-avatar>-->
+          <!--<h2>Elon Musk</h2>-->
+          <!--<p>Payment made</p>-->
+        <!--</ion-item>-->
+        <!--<ion-item-options side="right">-->
+          <!--<button ion-button color="primary">-->
+            <!--<ion-icon name="trash"></ion-icon>-->
 
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
-      <ion-item-sliding>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="https://militant04.github.io/assets/images/IMG_20161205_143803.jpg">
-          </ion-avatar>
-          <h2>Militant Saungweme</h2>
-          <p>Payment made</p>
-        </ion-item>
-        <ion-item-options side="right">
-          <button ion-button color="primary">
-            <ion-icon name="trash"></ion-icon>
+          <!--</button>-->
+        <!--</ion-item-options>-->
+      <!--</ion-item-sliding>-->
+      <!--<ion-item-sliding>-->
+        <!--<ion-item>-->
+          <!--<ion-avatar item-start>-->
+            <!--<img src="https://militant04.github.io/assets/images/IMG_20161205_143803.jpg">-->
+          <!--</ion-avatar>-->
+          <!--<h2>Militant Saungweme</h2>-->
+          <!--<p>Payment made</p>-->
+        <!--</ion-item>-->
+        <!--<ion-item-options side="right">-->
+          <!--<button ion-button color="primary">-->
+            <!--<ion-icon name="trash"></ion-icon>-->
 
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
+          <!--</button>-->
+        <!--</ion-item-options>-->
+      <!--</ion-item-sliding>-->
 
-      <ion-item-sliding>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="https://pbs.twimg.com/profile_images/932020207362695168/2YKXvUVr_bigger.jpg">
-          </ion-avatar>
-          <h2>Elon Musk</h2>
-          <p>Payment made</p>
-        </ion-item>
-        <ion-item-options side="right">
-          <button ion-button color="primary">
-            <ion-icon name="trash"></ion-icon>
+      <!--<ion-item-sliding>-->
+        <!--<ion-item>-->
+          <!--<ion-avatar item-start>-->
+            <!--<img src="https://pbs.twimg.com/profile_images/932020207362695168/2YKXvUVr_bigger.jpg">-->
+          <!--</ion-avatar>-->
+          <!--<h2>Elon Musk</h2>-->
+          <!--<p>Payment made</p>-->
+        <!--</ion-item>-->
+        <!--<ion-item-options side="right">-->
+          <!--<button ion-button color="primary">-->
+            <!--<ion-icon name="trash"></ion-icon>-->
 
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
-      <ion-item-sliding>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="https://militant04.github.io/assets/images/IMG_20161205_143803.jpg">
-          </ion-avatar>
-          <h2>Militant Saungweme</h2>
-          <p>Payment made</p>
-        </ion-item>
-        <ion-item-options side="right">
-          <button ion-button color="primary">
-            <ion-icon name="trash"></ion-icon>
+          <!--</button>-->
+        <!--</ion-item-options>-->
+      <!--</ion-item-sliding>-->
+      <!--<ion-item-sliding>-->
+        <!--<ion-item>-->
+          <!--<ion-avatar item-start>-->
+            <!--<img src="https://militant04.github.io/assets/images/IMG_20161205_143803.jpg">-->
+          <!--</ion-avatar>-->
+          <!--<h2>Militant Saungweme</h2>-->
+          <!--<p>Payment made</p>-->
+        <!--</ion-item>-->
+        <!--<ion-item-options side="right">-->
+          <!--<button ion-button color="primary">-->
+            <!--<ion-icon name="trash"></ion-icon>-->
 
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
+          <!--</button>-->
+        <!--</ion-item-options>-->
+      <!--</ion-item-sliding>-->
 
-      <ion-item-sliding>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="https://pbs.twimg.com/profile_images/932020207362695168/2YKXvUVr_bigger.jpg">
-          </ion-avatar>
-          <h2>Elon Musk</h2>
-          <p>Payment made</p>
-        </ion-item>
-        <ion-item-options side="right">
-          <button ion-button color="primary">
-            <ion-icon name="trash"></ion-icon>
+      <!--<ion-item-sliding>-->
+        <!--<ion-item>-->
+          <!--<ion-avatar item-start>-->
+            <!--<img src="https://pbs.twimg.com/profile_images/932020207362695168/2YKXvUVr_bigger.jpg">-->
+          <!--</ion-avatar>-->
+          <!--<h2>Elon Musk</h2>-->
+          <!--<p>Payment made</p>-->
+        <!--</ion-item>-->
+        <!--<ion-item-options side="right">-->
+          <!--<button ion-button color="primary">-->
+            <!--<ion-icon name="trash"></ion-icon>-->
 
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
-      <ion-item-sliding>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="https://militant04.github.io/assets/images/IMG_20161205_143803.jpg">
-          </ion-avatar>
-          <h2>Militant Saungweme</h2>
-          <p>Payment made</p>
-        </ion-item>
-        <ion-item-options side="right">
-          <button ion-button color="primary">
-            <ion-icon name="trash"></ion-icon>
+          <!--</button>-->
+        <!--</ion-item-options>-->
+      <!--</ion-item-sliding>-->
+      <!--<ion-item-sliding>-->
+        <!--<ion-item>-->
+          <!--<ion-avatar item-start>-->
+            <!--<img src="https://militant04.github.io/assets/images/IMG_20161205_143803.jpg">-->
+          <!--</ion-avatar>-->
+          <!--<h2>Militant Saungweme</h2>-->
+          <!--<p>Payment made</p>-->
+        <!--</ion-item>-->
+        <!--<ion-item-options side="right">-->
+          <!--<button ion-button color="primary">-->
+            <!--<ion-icon name="trash"></ion-icon>-->
 
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
+          <!--</button>-->
+        <!--</ion-item-options>-->
+      <!--</ion-item-sliding>-->
 
-      <ion-item-sliding>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="https://pbs.twimg.com/profile_images/932020207362695168/2YKXvUVr_bigger.jpg">
-          </ion-avatar>
-          <h2>Elon Musk</h2>
-          <p>Payment made</p>
-        </ion-item>
-        <ion-item-options side="right">
-          <button ion-button color="primary">
-            <ion-icon name="trash"></ion-icon>
+      <!--<ion-item-sliding>-->
+        <!--<ion-item>-->
+          <!--<ion-avatar item-start>-->
+            <!--<img src="https://pbs.twimg.com/profile_images/932020207362695168/2YKXvUVr_bigger.jpg">-->
+          <!--</ion-avatar>-->
+          <!--<h2>Elon Musk</h2>-->
+          <!--<p>Payment made</p>-->
+        <!--</ion-item>-->
+        <!--<ion-item-options side="right">-->
+          <!--<button ion-button color="primary">-->
+            <!--<ion-icon name="trash"></ion-icon>-->
 
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
+          <!--</button>-->
+        <!--</ion-item-options>-->
+      <!--</ion-item-sliding>-->
 
 
     </ion-list>
@@ -181,6 +183,14 @@
 
 
 
-
+  <ion-fab color="light" top right edge>
+    <button color="light"  ion-fab mini><ion-icon name="qr-scanner"></ion-icon></button>
+    <ion-fab-list>
+      <!--<button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>-->
+      <!--<button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>-->
+      <!--<button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>-->
+      <!--<button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>-->
+    </ion-fab-list>
+  </ion-fab>
 
 </ion-content>
