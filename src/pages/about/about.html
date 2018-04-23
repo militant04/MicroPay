@@ -19,21 +19,6 @@
 <ion-content>
 
 
-  <div  class="row">
-    <div class="col-md-6">
-      <div style="display: block;">
-        <canvas baseChart width="340" height="200"
-                [datasets]="lineChartData"
-                [labels]="lineChartLabels"
-                [options]="lineChartOptions"
-                [colors]="lineChartColors"
-                [chartType]="lineChartType"
-                (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)"></canvas>
-      </div>
-    </div>
-  </div>
-
     <ion-list   padding>
         <ion-item-sliding *ngFor="let item of list">
           <ion-item >

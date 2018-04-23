@@ -79,7 +79,7 @@ export class ContactPage {
     expiryMonth: '',
     expiryYear: '',
     expireDate: ''
-  }
+  };
 
   carNumber: string = '';
   expireDate: string = '';

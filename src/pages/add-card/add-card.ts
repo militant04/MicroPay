@@ -117,7 +117,7 @@ export class AddCardPage {
         console.log(res);
         this.scannedCardNumber = res.cardNumber;
         this.redactedCardNo = res.redactedCardNumber;
-        alert(this.redactedCardNo);
+        // alert(this.redactedCardNo);
         this.setCardData(res);
       }, err => {
         // alert(err);

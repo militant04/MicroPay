@@ -33,7 +33,6 @@ import {CryptoJS} from 'crypto-js';
 
 
 
-
 @NgModule({
   declarations: [
     MyApp,

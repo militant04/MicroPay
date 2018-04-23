@@ -7,6 +7,7 @@ import { LoadingController } from 'ionic-angular';
 import {LoginPage} from "../login/login";
 import {AddCardPage} from "../add-card/add-card";
 
+
 /**
  * Generated class for the SignupPage page.
  *
@@ -27,7 +28,13 @@ export class SignupPage {
 
   userData = {"username": "","password": "", "name": "","email": ""};
 
-  constructor(public loadingCtrl: LoadingController,public authService: AuthServiceProvider,public navCtrl: NavController,public toastCtrl : ToastController,public navParams: NavParams) {
+  constructor(public loadingCtrl: LoadingController
+              ,public authService: AuthServiceProvider
+              ,public navCtrl: NavController
+              ,public toastCtrl : ToastController
+              ,public navParams: NavParams) {
+
+
   }
 
   ionViewDidLoad() {

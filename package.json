@@ -24,6 +24,7 @@
     "@ionic-native/call-number": "^4.5.3",
     "@ionic-native/card-io": "^4.5.3",
     "@ionic-native/core": "4.4.0",
+    "@ionic-native/firebase": "^4.7.0",
     "@ionic-native/native-page-transitions": "^4.5.3",
     "@ionic-native/qr-scanner": "^4.5.2",
     "@ionic-native/secure-storage": "^4.5.3",
@@ -37,6 +38,7 @@
     "cordova-android": "~6.3.0",
     "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-device": "^1.1.4",
+    "cordova-plugin-firebase": "^1.0.0",
     "cordova-plugin-ionic-webview": "^1.1.16",
     "cordova-plugin-secure-storage": "^2.6.8",
     "cordova-plugin-splashscreen": "^4.0.3",
@@ -71,7 +73,8 @@
       "card.io.cordova.mobilesdk": {},
       "cordova-plugin-secure-storage": {},
       "com.telerik.plugins.nativepagetransitions": {},
-      "mx.ferreyra.callnumber": {}
+      "mx.ferreyra.callnumber": {},
+      "cordova-plugin-firebase": {}
     },
     "platforms": [
       "android"
